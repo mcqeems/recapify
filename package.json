@@ -35,7 +35,8 @@
     "onlyBuiltDependencies": [
       "bcrypt",
       "sharp",
-      "next-auth"
+      "next-auth",
+      "postgres"
     ]
   }
 }
