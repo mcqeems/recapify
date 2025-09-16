@@ -14,6 +14,15 @@ export type Customer = {
   name: string;
   email: string;
   image_url: string;
+  created_at: string;
+};
+
+export type AllCustomers = {
+  id: string;
+  name: string;
+  email: string;
+  image_url: string;
+  created_at: string;
 };
 
 export type Invoice = {
