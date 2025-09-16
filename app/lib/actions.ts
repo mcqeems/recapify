@@ -21,6 +21,18 @@ const formSchema = z.object({
   date: z.string(),
 });
 
+const formCustomerSchema = z.object({
+  id: z.string(),
+  name: z.string({
+    invalid_type_error: 'Please insert a valid name.',
+  }),
+  email: z.string().email({
+    message: 'Please enter a valid email format.',
+  }),
+});
+
+const CreateCustomer = formCustomerSchema.omit({ id: true });
+const UpdateCustomer = formCustomerSchema.omit({ id: true });
 const CreateInvoice = formSchema.omit({ id: true, date: true });
 const UpdateInvoice = formSchema.omit({ id: true, date: true });
 
@@ -29,6 +41,14 @@ export type State = {
     customerId?: string[];
     amount?: string[];
     status?: string[];
+  };
+  message?: string | null;
+};
+
+export type CustomerState = {
+  errors?: {
+    name?: string[];
+    email?: string[];
   };
   message?: string | null;
 };
