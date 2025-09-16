@@ -54,6 +54,9 @@ importers:
         specifier: ^3.25.17
         version: 3.25.17
     devDependencies:
+      '@netlify/plugin-nextjs':
+        specifier: ^5.13.2
+        version: 5.13.2
       '@types/bcrypt':
         specifier: ^5.0.2
         version: 5.0.2
@@ -311,6 +314,10 @@ packages:
 
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
+
+  '@netlify/plugin-nextjs@5.13.2':
+    resolution: {integrity: sha512-Lnr/7E5Nh6/MYFx7w/JFRWn1n2QvDbaixKuWRCoOW/oyOzuCiEUY8iv/Oz1frvjcb9toI7Kw4VEL1/Q34FqDMw==}
+    engines: {node: '>=18.0.0'}
 
   '@next/env@15.6.0-canary.6':
     resolution: {integrity: sha512-n2gnLG889CaemRQc/h2O50VckrfIH6Pgk1dbiGYA3oeVOhLqDfX8477mJ6Oz1T83bpCa5rj4zyDuQGD/i8t0Iw==}
@@ -2346,6 +2353,8 @@ snapshots:
       '@emnapi/runtime': 1.5.0
       '@tybys/wasm-util': 0.10.1
     optional: true
+
+  '@netlify/plugin-nextjs@5.13.2': {}
 
   '@next/env@15.6.0-canary.6': {}
 
