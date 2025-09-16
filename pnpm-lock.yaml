@@ -55,7 +55,7 @@ importers:
         version: 3.25.17
     devDependencies:
       '@netlify/plugin-nextjs':
-        specifier: ^5.13.2
+        specifier: latest
         version: 5.13.2
       '@types/bcrypt':
         specifier: ^5.0.2
