@@ -1,6 +1,5 @@
 'use client';
 
-import { lusitana } from '@/app/ui/fonts';
 import { AtSymbolIcon, KeyIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/app/ui/button';
@@ -14,9 +13,8 @@ export default function LoginForm() {
   const [errorMessage, formAction, isPending] = useActionState(authenticate, undefined);
 
   return (
-    <form action={formAction} className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>Please log in to continue.</h1>
+    <form action={formAction} className="space-y-3 ">
+      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8 border-2 border-primary/20">
         <div className="w-full">
           <div>
             <label className="mb-3 mt-5 block text-xs font-medium text-gray-900" htmlFor="email">

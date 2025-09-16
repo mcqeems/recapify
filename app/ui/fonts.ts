@@ -1,5 +1,15 @@
-import { Inter, Lusitana } from 'next/font/google';
+import { Inter, Lexend } from 'next/font/google';
 
-export const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
-export const lusitana = Lusitana({ subsets: ['latin'], weight: ['400', '700'] });
+const lexend = Lexend({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lexend',
+});
+
+export { inter, lexend };

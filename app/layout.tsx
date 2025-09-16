@@ -1,20 +1,20 @@
 import '@/app/ui/global.css';
-import { inter } from '@/app/ui/fonts';
+import { inter, lexend } from '@/app/ui/fonts';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Acme Dashboard',
-    default: 'Acme Dashboard',
+    template: '%s | Recapify',
+    default: 'Recapify',
   },
-  description: 'The official Next.js Course Dashboard, built with App Router.',
-  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+  description: 'An open source invoices recapitulation system.',
+  metadataBase: new URL('https://recapify.qeem.site'),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${lexend.variable}`}>
+      <body className={`font-inter antialiased`}>{children}</body>
     </html>
   );
 }
