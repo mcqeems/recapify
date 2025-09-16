@@ -4,18 +4,20 @@ import Search from '@/app/ui/search';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { fetchAllCustomers } from '@/app/lib/data';
+import { Metadata } from 'next';
 
-// Tambahkan searchParams ke properti halaman
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
+export const metadata: Metadata = {
+  title: 'Customers',
+};
+
+export default async function Page(props: {
+  searchParams?: Promise<{
     query?: string;
-  };
+  }>;
 }) {
-  // Dapatkan query dari searchParams, atau gunakan string kosong jika tidak ada
+  const searchParams = await props.searchParams;
   const query = searchParams?.query || '';
-  const customers = await fetchAllCustomers(query); // Teruskan query ke fungsi fetch
+  const customers = await fetchAllCustomers(query);
 
   return (
     <div className="w-full">
