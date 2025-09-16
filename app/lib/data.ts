@@ -213,7 +213,7 @@ export async function fetchFilteredCustomers(query: string) {
   }
 }
 
-export async function fetchAllCustomers() {
+export async function fetchAllCustomers(query: string) {
   try {
     const customers = await sql<AllCustomers[]>`
       SELECT
@@ -223,7 +223,10 @@ export async function fetchAllCustomers() {
         image_url,
         created_at
       FROM customers
-      ORDER BY created_at DESC
+      WHERE
+        customers.name ILIKE ${`%${query}%`} OR
+        customers.email ILIKE ${`%${query}%`}
+      ORDER BY customers.created_at DESC
     `;
 
     return customers;

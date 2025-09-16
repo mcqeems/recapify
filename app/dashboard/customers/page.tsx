@@ -5,8 +5,17 @@ import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { fetchAllCustomers } from '@/app/lib/data';
 
-export default async function Page() {
-  const customers = await fetchAllCustomers();
+// Tambahkan searchParams ke properti halaman
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+  };
+}) {
+  // Dapatkan query dari searchParams, atau gunakan string kosong jika tidak ada
+  const query = searchParams?.query || '';
+  const customers = await fetchAllCustomers(query); // Teruskan query ke fungsi fetch
 
   return (
     <div className="w-full">

@@ -3,8 +3,8 @@
 import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { deleteCustomer } from '@/app/lib/actions';
-import { useFormState } from 'react-dom';
-import { useEffect } from 'react';
+import { useEffect, useState, useActionState } from 'react';
+import ErrorModal from './error-modal';
 
 export function CreateCustomer() {
   return (
@@ -28,20 +28,30 @@ export function UpdateCustomer({ id }: { id: string }) {
 export function DeleteCustomer({ id }: { id: string }) {
   const initialState = { message: '' };
   const deleteCustomerWithId = deleteCustomer.bind(null, id);
-  const [state, dispatch] = useFormState(deleteCustomerWithId, initialState);
+  const [state, dispatch] = useActionState(deleteCustomerWithId, initialState);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Tambahkan state untuk modal
 
   useEffect(() => {
+    // Jika ada pesan error, buka modal
     if (state?.message && state.message.startsWith('Cannot')) {
-      alert(state.message);
+      setIsModalOpen(true);
     }
   }, [state]);
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <form action={dispatch}>
-      <button className="rounded-md border p-2 hover:bg-gray-100">
-        <span className="sr-only">Delete</span>
-        <TrashIcon className="w-5" />
-      </button>
-    </form>
+    <>
+      <form action={dispatch}>
+        <button className="rounded-md border p-2 hover:bg-gray-100">
+          <span className="sr-only">Delete</span>
+          <TrashIcon className="w-5" />
+        </button>
+      </form>
+
+      <ErrorModal isOpen={isModalOpen} onClose={closeModal} message={state?.message} />
+    </>
   );
 }
