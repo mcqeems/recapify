@@ -1,4 +1,3 @@
 [build]
   command   = "pnpm run build"
-  publish   = ""            # leave empty so the plugin controls it
-  functions = ".netlify/functions"  # Netlify’s default internal path
+  publish   = "dist"
